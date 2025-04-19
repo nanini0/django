@@ -1,9 +1,21 @@
-<html>
-    <head>
-        <title>Ola's blog</title>
-    </head>
-    <body>
-        <p>Hi there!</p>
-        <p>It works!</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>Posteos</title>
+</head>
+<body>
+    <div>
+        {% for post in posts %}
+        <div>
+            <p> publicado : {{ post.fecha_publicacion }}</p>
+            <h2><a href="">{{ post.titulo }}</a></h2>
+            <p>{{ post.texto|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
 </html>
