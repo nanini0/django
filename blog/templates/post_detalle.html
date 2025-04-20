@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <div class="post">
+        {% if post.fecha_publicacion %}
+            <div class="date">
+                {{ post.fecha_publicacion }}
+            </div>
+        {% endif %}
+        <h2>{{ post.titulo }}</h2>
+        <p>{{ post.texto|linebreaksbr }}</p>
+    </div>
+</body>
+</html>

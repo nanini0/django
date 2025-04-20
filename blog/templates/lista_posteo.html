@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <title>Posteos</title>
 </head>
 <body>
-    <div>
-        {% for post in posts %}
-        <div>
-            <p> publicado : {{ post.fecha_publicacion }}</p>
-            <h2><a href="">{{ post.titulo }}</a></h2>
-            <p>{{ post.texto|linebreaksbr }}</p>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>publicado: {{ post.fecha_publicacion }}</p>
+                        </div>
+                        <h2><a href="{% url 'post_detalle' pk=post.pk %}">{{ post.titulo }}</a></h2>
+                        <p>{{ post.texto|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-    </div>
 </body>
 </html>
